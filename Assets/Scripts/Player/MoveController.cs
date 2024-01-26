@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -5,8 +6,9 @@ using UnityEngine;
 
 public class MoveController : MonoBehaviour
 {
-    [SerializeField] private float _force = 400;
+    [SerializeField] private float _velocityValue = 10;
     [SerializeField] private float _angle = 45f;
+    [SerializeField] TrajectoryRenderer _trajectoryRenderer;
     private Rigidbody _rigidbody;
 
     private void Awake() 
@@ -18,6 +20,10 @@ public class MoveController : MonoBehaviour
     {
         direction.x *= Mathf.Cos(_angle * Mathf.Deg2Rad);
         direction.y *= Mathf.Sin(_angle * Mathf.Deg2Rad);
-        _rigidbody.AddForce(direction * _force, ForceMode.Acceleration);
+
+        Vector3 velocity = direction * _velocityValue;
+        _rigidbody.AddForce(velocity, ForceMode.VelocityChange);
+        
+        _trajectoryRenderer.ShowTrajectory(transform.position, velocity);
     }
 }
