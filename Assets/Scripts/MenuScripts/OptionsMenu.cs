@@ -6,30 +6,13 @@ using UnityEngine.UI;
 
 public class OptionsMenu : MonoBehaviour
 {
-    public AudioMixer _audioMixer;
-    public TMPro.TMP_Dropdown _resolutionDropdown;
-    Resolution[] resolutions;
+    [SerializeField] AudioMixer _audioMixer;
+    [SerializeField] TMPro.TMP_Dropdown _resolutionDropdown;
+    private Resolution[] _resolutions;
 
     void Start()
     {
-        resolutions = Screen.resolutions;
-        _resolutionDropdown.ClearOptions();
-        List<string> options = new List<string>();
-        int _currentResolutionindex = 0;
-        for (int i = 0; i< resolutions.Length; i++)
-        {
-            string option = resolutions[i].width + " x " + resolutions[i].height;
-            options.Add(option);
-
-            if(resolutions[i].width == Screen.currentResolution.width &&
-                resolutions[i].height == Screen.currentResolution.height)
-            {
-                _currentResolutionindex = i;
-            }
-        }
-        _resolutionDropdown.AddOptions(options);
-        _resolutionDropdown.value = _currentResolutionindex;
-        _resolutionDropdown.RefreshShownValue();
+        GetResolutions();
     }
     public void SetVolume(float volume)
     {
@@ -43,7 +26,7 @@ public class OptionsMenu : MonoBehaviour
 
     public void SetResolution(int _resolutionIndex)
     {
-        Resolution _resolution = resolutions[_resolutionIndex];
+        Resolution _resolution = _resolutions[_resolutionIndex];
         Screen.SetResolution(_resolution.width, _resolution.height, Screen.fullScreen);
     }
 
@@ -58,5 +41,27 @@ public class OptionsMenu : MonoBehaviour
             Application.targetFrameRate = -1;
             //QualitySettings.vSyncCount = 0;
         }
+    }
+
+    void GetResolutions()
+    {
+        _resolutions = Screen.resolutions;
+        _resolutionDropdown.ClearOptions();
+        List<string> options = new List<string>();
+        int _currentResolutionindex = 0;
+        for (int i = 0; i< _resolutions.Length; i++)
+        {
+            string option = _resolutions[i].width + " x " + _resolutions[i].height;
+            options.Add(option);
+
+            if(_resolutions[i].width == Screen.currentResolution.width &&
+                _resolutions[i].height == Screen.currentResolution.height)
+            {
+                _currentResolutionindex = i;
+            }
+        }
+        _resolutionDropdown.AddOptions(options);
+        _resolutionDropdown.value = _currentResolutionindex;
+        _resolutionDropdown.RefreshShownValue();
     }
 }
