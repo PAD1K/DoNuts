@@ -248,6 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lineRenderer: {fileID: 1210268477}
+  _countOfDots: 100
 --- !u!120 &1210268477
 LineRenderer:
   serializedVersion: 2
@@ -496,7 +497,7 @@ Transform:
   m_GameObject: {fileID: 1510984302}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.48, y: 0.5, z: 8.43}
+  m_LocalPosition: {x: -3.89, y: 0.5, z: -3.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -527,7 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d1a9673b9f1054e9755cae2e9b5d6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _force: 400
+  _velocityValue: 7
   _angle: 45
   _trajectoryRenderer: {fileID: 1210268476}
 --- !u!1 &1691175122
