@@ -21,7 +21,9 @@ public class MoveController : MonoBehaviour
         direction.x *= Mathf.Cos(_angle * Mathf.Deg2Rad);
         direction.y *= Mathf.Sin(_angle * Mathf.Deg2Rad);
 
-        Vector3 velocity = direction * _velocityValue;
+        Vector3 velocity = direction 
+                        * _velocityValue
+                        * Mathf.Abs(Mathf.Sqrt(Mathf.Pow(direction.x, 2) + Mathf.Pow(direction.y, 2)));
         _rigidbody.AddForce(velocity, ForceMode.VelocityChange);
         
         _trajectoryRenderer.ShowTrajectory(transform.position, velocity);
