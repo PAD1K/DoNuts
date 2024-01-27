@@ -16,7 +16,7 @@ public class Controller : MonoBehaviour
     {
         _input = new PlayerInput();
         _input.Enable();
-        _input.Player.Throw.performed += context => Throw();
+        _input.Player.Throw.canceled += context => Throw();
     }
 
     private void Update()
@@ -26,9 +26,9 @@ public class Controller : MonoBehaviour
 
     private void SetDirection()
     {
-        Vector2 moveVector = _input.Player.Move.ReadValue<Vector2>();
-        _direction.x = moveVector.x;
-        _direction.z = moveVector.y;
+        Vector2 moveVector = _input.Player.Throw.ReadValue<Vector2>();
+        _direction.x = -moveVector.x;
+        _direction.z = -moveVector.y;
     }
 
     private void Throw()
