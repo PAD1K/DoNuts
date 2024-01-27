@@ -7,6 +7,8 @@ public class Controller : MonoBehaviour
 {
     private PlayerInput _input;
     [SerializeField] MoveController _moveController;
+    // Единичный вектор, задающий направление броска
+    [SerializeField] Vector3 _direction = new Vector3(1, 1, 0);
 
     void Awake()
     {
@@ -17,6 +19,6 @@ public class Controller : MonoBehaviour
 
     private void Throw()
     {
-        _moveController.Throw(new Vector3(1, 1, 0));
+        _moveController.Throw(_direction);
     }
 }
