@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
@@ -22,6 +23,11 @@ public class MoveController : MonoBehaviour
 
     public void Throw()
     {
+        if (!IsGrounded()) 
+        {
+            return;
+        }
+
         if (Mathf.Abs(_velocity.x) <= _stickSensitivity && Mathf.Abs(_velocity.z) <= _stickSensitivity)
         {
             return;
@@ -32,6 +38,11 @@ public class MoveController : MonoBehaviour
 
     public void Aim(Vector3 direction)
     {        
+        if (!IsGrounded()) 
+        {
+            return;
+        }
+
         _direction.x = direction.x * Mathf.Cos(_angle * Mathf.Deg2Rad);
         _direction.y = direction.y;
         _direction.z = direction.z * Mathf.Sin(_angle * Mathf.Deg2Rad);
