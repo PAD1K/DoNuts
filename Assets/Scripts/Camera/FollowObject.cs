@@ -13,7 +13,11 @@ public class SmoothCameraFollow : MonoBehaviour
 
     private void LateUpdate()
     {
-        Vector3 targetPosition = new Vector3(target.position.x, transform.position.y, target.position.z);
-        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref _currentVelocity, smoothTime);
+        transform.position = Vector3.SmoothDamp(
+            transform.position,
+            new Vector3(target.position.x, transform.position.y, target.position.z),
+            ref _currentVelocity,
+            smoothTime
+        );
     }
 }
