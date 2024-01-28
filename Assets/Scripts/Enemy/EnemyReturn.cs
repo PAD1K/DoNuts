@@ -26,7 +26,7 @@ public class EnemyReturn : State
         }
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, _patrolPoint, _returnSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(_patrolPoint.x,transform.position.y,_patrolPoint.z), _returnSpeed * Time.deltaTime);
             if(_enemyPatrol.IsTargetInRadius)
             {
                 _enemyPatrol.IsTargetInRadius = false;

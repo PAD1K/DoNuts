@@ -30,7 +30,7 @@ public class EnemyChase : State
             if (_chaseEndTime > 0 || _isTargetInRadius)
             {
                 _chaseEndTime -= Time.deltaTime;
-                transform.position = Vector3.MoveTowards(transform.position, _target.transform.position, _chaseSpeed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, new Vector3(_target.transform.position.x,transform.position.y,_target.transform.position.z), _chaseSpeed * Time.deltaTime);
                 //return this;
             }
             else{
