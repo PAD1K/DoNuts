@@ -29,19 +29,19 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Throw"",
-                    ""type"": ""Button"",
-                    ""id"": ""99bb95a1-b808-4310-8be9-726564a1b4c9"",
-                    ""expectedControlType"": ""Button"",
+                    ""type"": ""Value"",
+                    ""id"": ""69e92245-95e3-48e1-84d5-befdebae712b"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""8d729dad-8bdb-4cab-89db-534efe434dd1"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""id"": ""f85b84b7-0378-403f-8e23-1e16b1b2ddca"",
+                    ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
