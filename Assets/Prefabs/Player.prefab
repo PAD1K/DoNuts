@@ -148,6 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveController: {fileID: 5083890177190490656}
+  _direction: {x: 1, y: 1, z: 1}
+  _trajectoryRenderer: {fileID: 0}
 --- !u!114 &5083890177190490656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,3 +165,7 @@ MonoBehaviour:
   _velocityValue: 7
   _angle: 45
   _trajectoryRenderer: {fileID: 0}
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _height: 0.6
