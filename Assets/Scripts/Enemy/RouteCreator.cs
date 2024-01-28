@@ -52,7 +52,7 @@ public class OvalRouteCreator : MonoBehaviour
             float y = Mathf.Sin(angle) * _b + transform.position.z;
             Debug.Log(i + ". " + "x=" + x + "; y=" + y);
             //lineRenderer.SetPosition(i, new Vector3(x, y, 0f));
-            points.Add(new Vector3(x, 0, y));
+            points.Add(new Vector3(x, 0.5f, y));
         }
         return points;
     }
