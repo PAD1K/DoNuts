@@ -4,24 +4,59 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
-public class EnemyPatrol : MonoBehaviour
+public class EnemyPatrol : State
 {
     [SerializeField] List<Transform> _patrolPoints = new List<Transform>();
     [SerializeField] int _targetPoint;
     [SerializeField] float _speed;
     [SerializeField] private  Transform _waypointsHolder;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private EnemyChase _chaseState;
+    private bool _isTargetInRadius;
+
+    public Vector3 TargetPoint
     {
-        GetWayPoints();
-        _targetPoint = 0;
-        
+        get {return _patrolPoints[_targetPoint].position;}
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool IsTargetInRadius
     {
-        if(transform.position == _patrolPoints[_targetPoint].position)
+        get {return _isTargetInRadius;}
+        set {_isTargetInRadius = value;}
+    }
+
+    
+    void Start()
+    {
+        _isTargetInRadius = false;
+        TryGetComponent<EnemyChase>(out _chaseState);
+        GetWayPoints();
+        _targetPoint = 0;
+    }
+
+    public override State RunCurrentState()
+    {
+        if(_isTargetInRadius)
+        {
+            _isTargetInRadius = false;
+            return _chaseState;
+        }
+        else{
+            Patrol();
+            return this;
+        }
+    }
+
+    void GetWayPoints()
+    {
+        _patrolPoints.Clear();
+        foreach(Transform child in _waypointsHolder)
+        {
+           _patrolPoints.Add(child);
+        }
+    }
+    void Patrol()
+    {
+         if(transform.position == _patrolPoints[_targetPoint].position)
         {
             _targetPoint++;
             if(_targetPoint >= _patrolPoints.Count)
@@ -32,13 +67,11 @@ public class EnemyPatrol : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, _patrolPoints[_targetPoint].position,_speed * Time.deltaTime);
     }
 
-    void GetWayPoints()
+    void OnTriggerEnter(Collider other)
     {
-        _patrolPoints.Clear();
-        foreach(Transform child in _waypointsHolder)
+        if(other.tag == "Player")
         {
-            Debug.Log("Aboba");
-           _patrolPoints.Add(child);
+            _isTargetInRadius = true;
         }
     }
 }
