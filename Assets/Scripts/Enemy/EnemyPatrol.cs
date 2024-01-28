@@ -10,15 +10,11 @@ public class EnemyPatrol : MonoBehaviour
     [SerializeField] int _targetPoint;
     [SerializeField] float _speed;
     [SerializeField] private  Transform _waypointsHolder;
-    private GameObject _enemy;
-    private GameObject _enemyPath;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-        _targetPoint = 0;
-        //FindPath();
-        //_patrolPoints = gameObject.GetComponentsInChildren<Transform>();
         GetWayPoints();
+        _targetPoint = 0;
         
     }
 
@@ -41,6 +37,7 @@ public class EnemyPatrol : MonoBehaviour
         _patrolPoints.Clear();
         foreach(Transform child in _waypointsHolder)
         {
+            Debug.Log("Aboba");
            _patrolPoints.Add(child);
         }
     }
