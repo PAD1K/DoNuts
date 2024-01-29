@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveController: {fileID: 5083890177190490656}
   _direction: {x: 1, y: 1, z: 1}
-  _trajectoryRenderer: {fileID: 0}
+  _trajectoryRenderer: {fileID: 7400112468117747527, guid: 95df57f60fb8ff6479d6e3ba72d82666, type: 3}
   _swipeThreshold: 50
 --- !u!114 &5083890177190490656
 MonoBehaviour:
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _velocityValue: 7
   _angle: 45
-  _trajectoryRenderer: {fileID: 0}
+  _trajectoryRenderer: {fileID: 7400112468117747527, guid: 95df57f60fb8ff6479d6e3ba72d82666, type: 3}
   _groundLayer:
     serializedVersion: 2
     m_Bits: 64
