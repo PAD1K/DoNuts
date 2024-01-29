@@ -5,5 +5,7 @@ using UnityEngine;
 public abstract class State : MonoBehaviour
 {
     // Start is called before the first frame update
-    public abstract State RunCurrentState();
+    public abstract void EnterState(StateController enemy);
+    public abstract void UpdateState(StateController enemy);
+
 }

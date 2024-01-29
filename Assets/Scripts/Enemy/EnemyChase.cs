@@ -9,40 +9,30 @@ public class EnemyChase : State
     [SerializeField] private float _chaseTime;
     [SerializeField] private float _chaseStartArea;
     [SerializeField] private float _chaseSpeed;
-    [SerializeField] private EnemyReturn _enemyReturn;
     private bool _isChasing;
-    private bool _isTargetInRadius;
+    private bool _isTargetStillInRadius;
     private float _chaseEndTime;
 
-    // Start is called before the first frame update
-    void Awake()
+    public override void EnterState(StateController enemy)
     {
-        TryGetComponent<EnemyReturn>(out _enemyReturn);
         _isChasing = true;
         _chaseEndTime = _chaseTime;
     }
-
-    // Update is called once per frame
-    public override State RunCurrentState()
+    public override void UpdateState(StateController enemy)
     {
         if(_isChasing)
         {
-            if (_chaseEndTime > 0 || _isTargetInRadius)
+            if (_chaseEndTime > 0 || _isTargetStillInRadius)
             {
                 _chaseEndTime -= Time.deltaTime;
                 transform.position = Vector3.MoveTowards(transform.position, new Vector3(_target.transform.position.x,transform.position.y,_target.transform.position.z), _chaseSpeed * Time.deltaTime);
-                //return this;
             }
             else{
-                _chaseEndTime = _chaseTime;
                 _isChasing = false;
-                //return _enemyPatrol;
             }
-            return this;
         }
         else{
-            _isChasing = true;
-            return _enemyReturn;
+            enemy.SwitchState(enemy.ReturnState);
         }
     }
 
@@ -50,7 +40,7 @@ public class EnemyChase : State
     {
         if(other.tag == "Player")
         {
-            _isTargetInRadius = true;
+            _isTargetStillInRadius = true;
         }
     }
 
@@ -58,7 +48,7 @@ public class EnemyChase : State
     {
         if(other.tag == "Player")
         {
-            _isTargetInRadius = false;
+            _isTargetStillInRadius = false;
         }
     }
 }

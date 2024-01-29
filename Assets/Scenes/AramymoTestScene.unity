@@ -2410,8 +2410,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waypointPrefab: {fileID: 5597932670054231514, guid: b53436ce0587ba14984ac23fc36744da, type: 3}
-  _widthOfEllipse: 8.5
-  _lengthOfEllipse: 7.58
+  _widthOfEllipse: 8
+  _lengthOfEllipse: 4
   _numberOfPoints: 10
 --- !u!1 &938759846
 GameObject:

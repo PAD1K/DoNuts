@@ -10,7 +10,6 @@ public class EnemyPatrol : State
     [SerializeField] int _targetPoint;
     [SerializeField] float _speed;
     [SerializeField] private  Transform _waypointsHolder;
-    [SerializeField] private EnemyChase _chaseState;
     private bool _isTargetInRadius;
 
     public Vector3 TargetPoint
@@ -24,25 +23,25 @@ public class EnemyPatrol : State
         set {_isTargetInRadius = value;}
     }
 
-    
     void Start()
     {
-        _isTargetInRadius = false;
-        TryGetComponent<EnemyChase>(out _chaseState);
         GetWayPoints();
         _targetPoint = 0;
     }
+    
+    public override void EnterState(StateController enemy)
+    {
+        _isTargetInRadius = false;
+    }
 
-    public override State RunCurrentState()
+    public override void UpdateState(StateController enemy)
     {
         if(_isTargetInRadius)
         {
-            _isTargetInRadius = false;
-            return _chaseState;
+            enemy.SwitchState(enemy.ChaseState);
         }
         else{
             Patrol();
-            return this;
         }
     }
 

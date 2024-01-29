@@ -4,36 +4,29 @@ using UnityEngine;
 
 public class EnemyReturn : State
 {
-    [SerializeField] private EnemyPatrol _enemyPatrol;
-    [SerializeField] private EnemyChase _enemyChase;
+    //[SerializeField] private EnemyChase _enemyChase;
     [SerializeField] float _returnSpeed;
     private Vector3 _patrolPoint;
-    // Start is called before the first frame update
-    void Awake()
+
+    public override void EnterState(StateController enemy)
     {
-        TryGetComponent<EnemyPatrol>(out _enemyPatrol);
-        TryGetComponent<EnemyChase>(out _enemyChase);
+        _patrolPoint =  enemy.PatrolState.TargetPoint;
     }
 
     // Update is called once per frame
-    public override State RunCurrentState()
+    public override void UpdateState(StateController enemy)
     {
-        _patrolPoint = _enemyPatrol.TargetPoint;
-        //return this;
         if(_patrolPoint == transform.position)
         {
-            return _enemyPatrol;
+            enemy.SwitchState(enemy.PatrolState);
         }
         else
         {
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(_patrolPoint.x,transform.position.y,_patrolPoint.z), _returnSpeed * Time.deltaTime);
-            if(_enemyPatrol.IsTargetInRadius)
+            if( enemy.PatrolState.IsTargetInRadius)
             {
-                _enemyPatrol.IsTargetInRadius = false;
-                return _enemyChase;
-            }
-            else{
-                return this;
+                enemy.PatrolState.IsTargetInRadius = false;
+                enemy.SwitchState(enemy.ChaseState);
             }
         }
     }
