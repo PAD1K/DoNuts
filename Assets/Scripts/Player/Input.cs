@@ -12,11 +12,27 @@ public class Controller : MonoBehaviour
     [SerializeField] private Vector3 _direction = new Vector3(1, 1, 1);
     [SerializeField] private TrajectoryRenderer _trajectoryRenderer;
 
+    [Header("Swipe Detection Properties")]
+    [Space]
+    [SerializeField] private byte _swipeThreshold;
+
+    // Переменные отвечающие за определение свайпа
+    private Vector2 _startedPosition;
+    private Vector2 _currentPosition;
+
+    //События на свайпы
+    public delegate void SwipeHandler(byte direction);
+    public static event SwipeHandler OnSwipeEvent;
+
+
     private void Awake()
     {
         _input = new PlayerInput();
         _input.Enable();
         _input.Player.Throw.canceled += context => Throw();
+        _input.Player.TouchPress.started += context => {_startedPosition = _input.Player.TouchPosition.ReadValue<Vector2>();};
+        _input.Player.TouchPosition.performed += context => { _currentPosition = _input.Player.TouchPosition.ReadValue<Vector2>();};
+        _input.Player.TouchPress.canceled += context => SwipeDetection();
     }
 
     private void Update()
@@ -42,5 +58,30 @@ public class Controller : MonoBehaviour
     private void Throw()
     {
         _moveController.Throw();
+    }
+
+    private void SwipeDetection()
+    {
+        Vector2 delta = _currentPosition - _startedPosition;
+        
+        if(delta.magnitude < _swipeThreshold)
+        {
+            Debug.Log("Touched no swipe");
+            return;
+        }
+
+        if((Mathf.Abs(delta.x) < Mathf.Abs(delta.y)))
+        {
+            //Debug.Log("Vertical Swipe");
+            if (delta.y > 0)
+            {
+                OnSwipeEvent?.Invoke(1);
+            }
+            else
+            {
+                OnSwipeEvent.Invoke(0);
+            }
+        }
+
     }
 }

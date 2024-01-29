@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 5939550094354332484}
   - component: {fileID: 3157297456357899850}
   - component: {fileID: 5083890177190490656}
+  - component: {fileID: 7672056492292078961}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,6 +151,7 @@ MonoBehaviour:
   _moveController: {fileID: 5083890177190490656}
   _direction: {x: 1, y: 1, z: 1}
   _trajectoryRenderer: {fileID: 0}
+  _swipeThreshold: 50
 --- !u!114 &5083890177190490656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,3 +171,16 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _height: 0.6
+  _stickSensitivity: 0.5
+--- !u!114 &7672056492292078961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4531391267799868626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3adfb508a938a3e48a085e660b283203, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
