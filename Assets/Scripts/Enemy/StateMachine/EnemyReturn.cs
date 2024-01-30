@@ -23,9 +23,8 @@ public class EnemyReturn : State
         else
         {
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(_patrolPoint.x,transform.position.y,_patrolPoint.z), _returnSpeed * Time.deltaTime);
-            if( enemy.PatrolState.IsTargetInRadius)
+            if(enemy.PatrolState.IsTargetInRadius)
             {
-                enemy.PatrolState.IsTargetInRadius = false;
                 enemy.SwitchState(enemy.ChaseState);
             }
         }

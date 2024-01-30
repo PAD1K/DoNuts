@@ -28,11 +28,29 @@ public class Controller : MonoBehaviour
     private void Awake()
     {
         _input = new PlayerInput();
+        // _input.Enable();
+        // _input.Player.Throw.canceled += context => Throw();
+        // _input.Player.TouchPress.started += context => {_startedPosition = _input.Player.TouchPosition.ReadValue<Vector2>();};
+        // _input.Player.TouchPosition.performed += context => { _currentPosition = _input.Player.TouchPosition.ReadValue<Vector2>();};
+        // _input.Player.TouchPress.canceled += context => SwipeDetection();
+    }
+
+    void OnEnable()
+    {
         _input.Enable();
         _input.Player.Throw.canceled += context => Throw();
         _input.Player.TouchPress.started += context => {_startedPosition = _input.Player.TouchPosition.ReadValue<Vector2>();};
         _input.Player.TouchPosition.performed += context => { _currentPosition = _input.Player.TouchPosition.ReadValue<Vector2>();};
         _input.Player.TouchPress.canceled += context => SwipeDetection();
+    }
+
+    void OnDisable()
+    {
+        _input.Player.Throw.canceled -= context => Throw();
+        _input.Player.TouchPress.started -= context => {_startedPosition = _input.Player.TouchPosition.ReadValue<Vector2>();};
+        _input.Player.TouchPosition.performed -= context => { _currentPosition = _input.Player.TouchPosition.ReadValue<Vector2>();};
+        _input.Player.TouchPress.canceled -= context => SwipeDetection();
+         _input.Disable();
     }
 
     private void Update()

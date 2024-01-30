@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class SwipeDetector : MonoBehaviour
 {
-
-    void Awake()
+    void OnEnable()
     {
-        Controller.OnSwipeEvent += context => Swipe(context);  
+        Controller.OnSwipeEvent += Swipe; 
     }
+
+    void OnDisable()
+    {
+        Controller.OnSwipeEvent -= Swipe;
+    }
+
     void Swipe(byte context)
     {
         if(context == 0)
