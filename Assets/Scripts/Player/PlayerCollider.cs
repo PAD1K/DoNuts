@@ -7,6 +7,7 @@ public class PlayerCollider : MonoBehaviour
 {
     public delegate void CollideHandler (EnemyStats stats);
     public static event CollideHandler OnTriggerWithEnemy;
+    private EnemyStats _stats;
 
 
     private void OnTriggerEnter(Collider other) 
@@ -16,8 +17,8 @@ public class PlayerCollider : MonoBehaviour
             return;
         }
         
-        EnemyStats stats = new EnemyStats();
-        other.gameObject.TryGetComponent<EnemyStats>(out stats);
-        OnTriggerWithEnemy?.Invoke(stats);
+        other.gameObject.TryGetComponent<EnemyStats>(out _stats);
+        OnTriggerWithEnemy?.Invoke(_stats);
+        Debug.Log("Ivoke");
     }
 }
