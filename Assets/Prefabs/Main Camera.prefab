@@ -105,5 +105,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d2415eb4d65fbf439fd63c34f241403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  smoothTime: 0.5
+  _playerTransform: {fileID: 0}
+  _smoothTime: 0

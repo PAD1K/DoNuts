@@ -21,18 +21,36 @@ public class Controller : MonoBehaviour
     private Vector2 _currentPosition;
 
     //События на свайпы
-    public delegate void SwipeHandler(byte direction);
+    public delegate void SwipeHandler(int direction);
     public static event SwipeHandler OnSwipeEvent;
 
 
     private void Awake()
     {
         _input = new PlayerInput();
+        // _input.Enable();
+        // _input.Player.Throw.canceled += context => Throw();
+        // _input.Player.TouchPress.started += context => {_startedPosition = _input.Player.TouchPosition.ReadValue<Vector2>();};
+        // _input.Player.TouchPosition.performed += context => { _currentPosition = _input.Player.TouchPosition.ReadValue<Vector2>();};
+        // _input.Player.TouchPress.canceled += context => SwipeDetection();
+    }
+
+    void OnEnable()
+    {
         _input.Enable();
         _input.Player.Throw.canceled += context => Throw();
         _input.Player.TouchPress.started += context => {_startedPosition = _input.Player.TouchPosition.ReadValue<Vector2>();};
         _input.Player.TouchPosition.performed += context => { _currentPosition = _input.Player.TouchPosition.ReadValue<Vector2>();};
         _input.Player.TouchPress.canceled += context => SwipeDetection();
+    }
+
+    void OnDisable()
+    {
+        _input.Player.Throw.canceled -= context => Throw();
+        _input.Player.TouchPress.started -= context => {_startedPosition = _input.Player.TouchPosition.ReadValue<Vector2>();};
+        _input.Player.TouchPosition.performed -= context => { _currentPosition = _input.Player.TouchPosition.ReadValue<Vector2>();};
+        _input.Player.TouchPress.canceled -= context => SwipeDetection();
+         _input.Disable();
     }
 
     private void Update()
@@ -79,7 +97,7 @@ public class Controller : MonoBehaviour
             }
             else
             {
-                OnSwipeEvent.Invoke(0);
+                OnSwipeEvent?.Invoke(0);
             }
         }
 

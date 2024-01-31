@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class SwipeDetector : MonoBehaviour
 {
-
-    void Awake()
+    void OnEnable()
     {
-        Controller.OnSwipeEvent += context => Swipe(context);  
+        SwipeGame.OnGameSwipeWin += Swipe; 
     }
-    void Swipe(byte context)
+
+    void OnDisable()
     {
-        if(context == 0)
-        {
-            Debug.Log("Swipe down event triggered");
-        }
-        else
-        {
-            Debug.Log("Swipe up event triggered");
-        }
+        SwipeGame.OnGameSwipeWin += Swipe;
+    }
+
+    void Swipe()
+    {
+        Debug.Log("Player won swipe game");
     }
 }

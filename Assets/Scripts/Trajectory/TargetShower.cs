@@ -19,7 +19,16 @@ public class TargetShower : MonoBehaviour
 
     private void Awake() 
     {
-        MoveController.OnLandEvent += HideTarget;
         HideTarget();
+    }
+
+    void OnEnable()
+    {
+        MoveController.OnLandEvent += HideTarget;
+    }
+
+    void OnDisable()
+    {
+        MoveController.OnLandEvent -= HideTarget;
     }
 }

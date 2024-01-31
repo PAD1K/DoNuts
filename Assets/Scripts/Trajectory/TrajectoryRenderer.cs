@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+//using System.Numerics;
 using UnityEngine;
 
 public class TrajectoryRenderer : MonoBehaviour
 {
     [SerializeField] LineRenderer _lineRenderer;
-    [SerializeField] int _countOfDots = 100;
+    [SerializeField] int _countOfDots;
     [SerializeField] TargetShower _targetSprite; 
 
     public void ShowTrajectory(Vector3 origin, Vector3 velocity)
@@ -39,11 +40,22 @@ public class TrajectoryRenderer : MonoBehaviour
 
     private void Awake() 
     {
+        TryGetComponent<LineRenderer>(out _lineRenderer);
+    }
+
+    void OnEnable()
+    {
         MoveController.OnLandEvent += HideTrajectory;
+    }
+
+    void OnDisable()
+    {
+        MoveController.OnLandEvent -= HideTrajectory;
     }
 
     public void HideTrajectory()
     {
         _lineRenderer.positionCount = 0;
+        _targetSprite.HideTarget();
     }
 }

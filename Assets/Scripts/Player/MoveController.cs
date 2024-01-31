@@ -32,7 +32,7 @@ public class MoveController : MonoBehaviour
         {
             return;
         }
-
+        _trajectoryRenderer.HideTrajectory();
         _rigidbody.AddForce(_velocity, ForceMode.VelocityChange);
     }
 
@@ -56,6 +56,7 @@ public class MoveController : MonoBehaviour
 
     private void Awake() 
     {
+        _trajectoryRenderer.HideTrajectory();
         _rigidbody = gameObject.GetComponent<Rigidbody>();
     }
 
