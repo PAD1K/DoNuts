@@ -6,23 +6,16 @@ public class SwipeDetector : MonoBehaviour
 {
     void OnEnable()
     {
-        Controller.OnSwipeEvent += Swipe; 
+        SwipeGame.OnGameSwipeWin += Swipe; 
     }
 
     void OnDisable()
     {
-        Controller.OnSwipeEvent -= Swipe;
+        SwipeGame.OnGameSwipeWin += Swipe;
     }
 
-    void Swipe(byte context)
+    void Swipe()
     {
-        if(context == 0)
-        {
-            Debug.Log("Swipe down event triggered");
-        }
-        else
-        {
-            Debug.Log("Swipe up event triggered");
-        }
+        Debug.Log("Player won swipe game");
     }
 }

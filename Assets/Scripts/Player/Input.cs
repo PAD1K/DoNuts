@@ -21,7 +21,7 @@ public class Controller : MonoBehaviour
     private Vector2 _currentPosition;
 
     //События на свайпы
-    public delegate void SwipeHandler(byte direction);
+    public delegate void SwipeHandler(int direction);
     public static event SwipeHandler OnSwipeEvent;
 
 
@@ -97,7 +97,7 @@ public class Controller : MonoBehaviour
             }
             else
             {
-                OnSwipeEvent.Invoke(0);
+                OnSwipeEvent?.Invoke(0);
             }
         }
 
