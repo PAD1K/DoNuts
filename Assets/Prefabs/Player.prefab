@@ -262,6 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zoomer: {fileID: 0}
+  _timeToLose: 30
 --- !u!1001 &466418337230224727
 PrefabInstance:
   m_ObjectHideFlags: 0

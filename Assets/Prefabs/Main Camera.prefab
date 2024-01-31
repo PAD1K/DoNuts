@@ -121,5 +121,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerTransform: {fileID: 0}
-  _smoothTime: 0.5
-  _distanceFromPlayer: 2
+  _smoothTime: 0.3
+  _distanceFromPlayer: 5
