@@ -132,7 +132,7 @@ ScriptedImporter:
       y: 4
       width: 59
       height: 59
-    spriteID: 4f9045ddacb236344b6bef263275f591
+    spriteID: 2a40509ca8c1ae54c949ac09a1ca4499
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -152,7 +152,7 @@ ScriptedImporter:
       y: 101
       width: 59
       height: 59
-    spriteID: 8dff1c5ff6555144586c07e53fd08d3d
+    spriteID: 4f5512322bb52d34eb1d9118a90e3447
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -172,7 +172,7 @@ ScriptedImporter:
       y: 101
       width: 56
       height: 55
-    spriteID: bf937d4538903e34c95c7b74821473d1
+    spriteID: 77686f71c40bf364c8f350151babd4b2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -192,7 +192,7 @@ ScriptedImporter:
       y: 168
       width: 51
       height: 58
-    spriteID: 7255800e40e79ee49a40345ceb026b62
+    spriteID: 1869f63c14138db4fbe8ec5dc5c8cded
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -212,7 +212,7 @@ ScriptedImporter:
       y: 4
       width: 67
       height: 69
-    spriteID: fb52e27d5d146e24ab02a39bc1573737
+    spriteID: cb1ad0aebaf3d8b40ba2f171a527a0d0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -232,7 +232,7 @@ ScriptedImporter:
       y: 4
       width: 90
       height: 89
-    spriteID: 90b18adc8ae0856489f5e254276ffaba
+    spriteID: e9e26ab3e2625e947b3a78e9a5cf90bf
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -252,7 +252,7 @@ ScriptedImporter:
       y: 101
       width: 59
       height: 59
-    spriteID: 3112ec61b79e2d944b1e88517cb722cd
+    spriteID: 47b19a7c8b0973d4aa52d9edb0446c6f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -277,7 +277,7 @@ ScriptedImporter:
         y: 13
         width: 59
         height: 59
-      spriteId: 4f9045ddacb236344b6bef263275f591
+      spriteId: 2a40509ca8c1ae54c949ac09a1ca4499
     - name: davlenieANIM4_Frame_1
       frameIndex: 1
       cellRect:
@@ -285,7 +285,7 @@ ScriptedImporter:
         y: 13
         width: 59
         height: 59
-      spriteId: 8dff1c5ff6555144586c07e53fd08d3d
+      spriteId: 4f5512322bb52d34eb1d9118a90e3447
     - name: davlenieANIM4_Frame_2
       frameIndex: 2
       cellRect:
@@ -293,7 +293,7 @@ ScriptedImporter:
         y: 15
         width: 56
         height: 55
-      spriteId: bf937d4538903e34c95c7b74821473d1
+      spriteId: 77686f71c40bf364c8f350151babd4b2
     - name: davlenieANIM4_Frame_3
       frameIndex: 3
       cellRect:
@@ -301,7 +301,7 @@ ScriptedImporter:
         y: 16
         width: 51
         height: 58
-      spriteId: 7255800e40e79ee49a40345ceb026b62
+      spriteId: 1869f63c14138db4fbe8ec5dc5c8cded
     - name: davlenieANIM4_Frame_4
       frameIndex: 4
       cellRect:
@@ -309,7 +309,7 @@ ScriptedImporter:
         y: 13
         width: 67
         height: 69
-      spriteId: fb52e27d5d146e24ab02a39bc1573737
+      spriteId: cb1ad0aebaf3d8b40ba2f171a527a0d0
     - name: davlenieANIM4_Frame_5
       frameIndex: 5
       cellRect:
@@ -317,7 +317,7 @@ ScriptedImporter:
         y: 5
         width: 90
         height: 89
-      spriteId: 90b18adc8ae0856489f5e254276ffaba
+      spriteId: e9e26ab3e2625e947b3a78e9a5cf90bf
     - name: davlenieANIM4_Frame_6
       frameIndex: 6
       cellRect:
@@ -325,7 +325,7 @@ ScriptedImporter:
         y: 13
         width: 59
         height: 59
-      spriteId: 3112ec61b79e2d944b1e88517cb722cd
+      spriteId: 47b19a7c8b0973d4aa52d9edb0446c6f
     linkedCells: []
     parentIndex: -1
   platformSettings: []
