@@ -2,7 +2,12 @@ fileFormatVersion: 2
 guid: f8794e2b7ea926349b1e2ebc22e17cb4
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: davlenieANIM_Clip
+    second: {fileID: 7400000, guid: ac63976cb72656e4a919b1bd086ec9b2, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -97,7 +102,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 0
+  platformSettingsDirtyTick: 638424025769792688
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -132,7 +137,7 @@ ScriptedImporter:
       y: 91
       width: 59
       height: 59
-    spriteID: 1e16f8c65e124964dac17cc8cbe888ba
+    spriteID: eb5836c32feb29141ba40a14d79c0b62
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -152,7 +157,7 @@ ScriptedImporter:
       y: 91
       width: 56
       height: 55
-    spriteID: 1464917aeb093164eb6703681cb772d3
+    spriteID: b067483d59445224e97e6fe88fb29bc0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -172,7 +177,7 @@ ScriptedImporter:
       y: 91
       width: 50
       height: 52
-    spriteID: 7dff2fd6e7d0552429f77da1fa1735db
+    spriteID: 72db3ea169eb5744283e67cdf7f083ec
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -192,7 +197,7 @@ ScriptedImporter:
       y: 4
       width: 59
       height: 62
-    spriteID: 7a8e25637da4eda42b8b3cb685e470b6
+    spriteID: cf06dc85dd8ed564dbf77f6a01df0fd7
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -212,7 +217,7 @@ ScriptedImporter:
       y: 4
       width: 62
       height: 68
-    spriteID: b6660b839c9ca224fa2e2a892b061be5
+    spriteID: ccfab074297a05e4795e42f6ed2dd7f0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -232,7 +237,7 @@ ScriptedImporter:
       y: 4
       width: 84
       height: 79
-    spriteID: 08891b4ead612554bb7fdac53bfbdf94
+    spriteID: 72c8b6f2e8dcc664eb236d6b1be77a83
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -252,7 +257,7 @@ ScriptedImporter:
       y: 91
       width: 59
       height: 59
-    spriteID: 6642c92ed96f49f43aa05b5738e25e9c
+    spriteID: a3f4d19129d74d5419695a4165425257
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -277,7 +282,7 @@ ScriptedImporter:
         y: 13
         width: 59
         height: 59
-      spriteId: 1e16f8c65e124964dac17cc8cbe888ba
+      spriteId: eb5836c32feb29141ba40a14d79c0b62
     - name: davlenieANIM_Frame_1
       frameIndex: 1
       cellRect:
@@ -285,7 +290,7 @@ ScriptedImporter:
         y: 15
         width: 56
         height: 55
-      spriteId: 1464917aeb093164eb6703681cb772d3
+      spriteId: b067483d59445224e97e6fe88fb29bc0
     - name: davlenieANIM_Frame_2
       frameIndex: 2
       cellRect:
@@ -293,7 +298,7 @@ ScriptedImporter:
         y: 16
         width: 50
         height: 52
-      spriteId: 7dff2fd6e7d0552429f77da1fa1735db
+      spriteId: 72db3ea169eb5744283e67cdf7f083ec
     - name: davlenieANIM_Frame_3
       frameIndex: 3
       cellRect:
@@ -301,7 +306,7 @@ ScriptedImporter:
         y: 13
         width: 59
         height: 62
-      spriteId: 7a8e25637da4eda42b8b3cb685e470b6
+      spriteId: cf06dc85dd8ed564dbf77f6a01df0fd7
     - name: davlenieANIM_Frame_4
       frameIndex: 4
       cellRect:
@@ -309,7 +314,7 @@ ScriptedImporter:
         y: 13
         width: 62
         height: 68
-      spriteId: b6660b839c9ca224fa2e2a892b061be5
+      spriteId: ccfab074297a05e4795e42f6ed2dd7f0
     - name: davlenieANIM_Frame_5
       frameIndex: 5
       cellRect:
@@ -317,7 +322,7 @@ ScriptedImporter:
         y: 13
         width: 84
         height: 79
-      spriteId: 08891b4ead612554bb7fdac53bfbdf94
+      spriteId: 72c8b6f2e8dcc664eb236d6b1be77a83
     - name: davlenieANIM_Frame_6
       frameIndex: 6
       cellRect:
@@ -325,10 +330,46 @@ ScriptedImporter:
         y: 13
         width: 59
         height: 59
-      spriteId: 6642c92ed96f49f43aa05b5738e25e9c
+      spriteId: a3f4d19129d74d5419695a4165425257
     linkedCells: []
     parentIndex: -1
-  platformSettings: []
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 

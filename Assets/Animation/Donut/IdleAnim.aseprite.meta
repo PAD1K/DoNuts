@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8186ab78733f9494b89ea8f713b36118
+guid: d51441071da77f548850c58c94f18edf
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,118 +121,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: davlenieANIM4_Frame_0
+  - name: IdleAnim_Frame_0
     originalName: 
-    pivot: {x: 0.52542377, y: -0.22033899}
+    pivot: {x: 0.5084746, y: -0.33898306}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 177
+      x: 4
       y: 4
       width: 59
       height: 59
-    spriteID: 4f9045ddacb236344b6bef263275f591
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 177, y: 4}
-  - name: davlenieANIM4_Frame_1
-    originalName: 
-    pivot: {x: 0.52542377, y: -0.22033899}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 101
-      width: 59
-      height: 59
-    spriteID: 8dff1c5ff6555144586c07e53fd08d3d
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 101}
-  - name: davlenieANIM4_Frame_2
-    originalName: 
-    pivot: {x: 0.5357143, y: -0.27272728}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 138
-      y: 101
-      width: 56
-      height: 55
-    spriteID: bf937d4538903e34c95c7b74821473d1
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 138, y: 101}
-  - name: davlenieANIM4_Frame_3
-    originalName: 
-    pivot: {x: 0.54901963, y: -0.27586207}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 168
-      width: 51
-      height: 58
-    spriteID: 7255800e40e79ee49a40345ceb026b62
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 168}
-  - name: davlenieANIM4_Frame_4
-    originalName: 
-    pivot: {x: 0.52238804, y: -0.1884058}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 102
-      y: 4
-      width: 67
-      height: 69
-    spriteID: fb52e27d5d146e24ab02a39bc1573737
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 102, y: 4}
-  - name: davlenieANIM4_Frame_5
-    originalName: 
-    pivot: {x: 0.5, y: -0.056179773}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 4
-      width: 90
-      height: 89
-    spriteID: 90b18adc8ae0856489f5e254276ffaba
+    spriteID: 22d341b923d90554a96fb628ba56839c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -241,18 +141,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: davlenieANIM4_Frame_6
+  - name: IdleAnim_Frame_1
     originalName: 
-    pivot: {x: 0.52542377, y: -0.22033899}
+    pivot: {x: 0.5084746, y: -0.33898306}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 71
-      y: 101
+      x: 4
+      y: 71
       width: 59
       height: 59
-    spriteID: 3112ec61b79e2d944b1e88517cb722cd
+    spriteID: 6fec5d29ea8d19e478e958a421029027
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -260,72 +160,88 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 71, y: 101}
+    uvTransform: {x: 4, y: 71}
+  - name: IdleAnim_Frame_2
+    originalName: 
+    pivot: {x: 0.5084746, y: -0.33898306}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 138
+      width: 59
+      height: 59
+    spriteID: 8199a84c1df40304cbf3d14fb948a253
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 138}
+  - name: IdleAnim_Frame_3
+    originalName: 
+    pivot: {x: 0.5084746, y: -0.33898306}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 71
+      y: 4
+      width: 59
+      height: 59
+    spriteID: 915782522559594458234d812e5bee6b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 71, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -2129581381
-    name: davlenieANIM4
+    guid: -956415857
+    name: IdleAnim
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: davlenieANIM4_Frame_0
+    - name: IdleAnim_Frame_0
       frameIndex: 0
       cellRect:
-        x: 19
-        y: 13
+        x: 20
+        y: 20
         width: 59
         height: 59
-      spriteId: 4f9045ddacb236344b6bef263275f591
-    - name: davlenieANIM4_Frame_1
+      spriteId: 22d341b923d90554a96fb628ba56839c
+    - name: IdleAnim_Frame_1
       frameIndex: 1
       cellRect:
-        x: 19
-        y: 13
+        x: 20
+        y: 20
         width: 59
         height: 59
-      spriteId: 8dff1c5ff6555144586c07e53fd08d3d
-    - name: davlenieANIM4_Frame_2
+      spriteId: 6fec5d29ea8d19e478e958a421029027
+    - name: IdleAnim_Frame_2
       frameIndex: 2
       cellRect:
         x: 20
-        y: 15
-        width: 56
-        height: 55
-      spriteId: bf937d4538903e34c95c7b74821473d1
-    - name: davlenieANIM4_Frame_3
-      frameIndex: 3
-      cellRect:
-        x: 22
-        y: 16
-        width: 51
-        height: 58
-      spriteId: 7255800e40e79ee49a40345ceb026b62
-    - name: davlenieANIM4_Frame_4
-      frameIndex: 4
-      cellRect:
-        x: 15
-        y: 13
-        width: 67
-        height: 69
-      spriteId: fb52e27d5d146e24ab02a39bc1573737
-    - name: davlenieANIM4_Frame_5
-      frameIndex: 5
-      cellRect:
-        x: 5
-        y: 5
-        width: 90
-        height: 89
-      spriteId: 90b18adc8ae0856489f5e254276ffaba
-    - name: davlenieANIM4_Frame_6
-      frameIndex: 6
-      cellRect:
-        x: 19
-        y: 13
+        y: 20
         width: 59
         height: 59
-      spriteId: 3112ec61b79e2d944b1e88517cb722cd
+      spriteId: 8199a84c1df40304cbf3d14fb948a253
+    - name: IdleAnim_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 20
+        y: 20
+        width: 59
+        height: 59
+      spriteId: 915782522559594458234d812e5bee6b
     linkedCells: []
     parentIndex: -1
   platformSettings: []
