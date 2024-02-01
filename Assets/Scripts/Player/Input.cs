@@ -12,6 +12,20 @@ public class Controller : MonoBehaviour
     [SerializeField] private Vector3 _direction = new Vector3(1, 1, 1);
     [SerializeField] private TrajectoryRenderer _trajectoryRenderer;
 
+    private Vector2 _moveVector;
+
+    public Vector2 MoveVector
+    {
+        get{return _moveVector;}
+        set{_moveVector = value;}
+    }
+    private bool _isAiming;
+    public bool IsAimingCanceled
+    {
+        get{return _isAiming;}
+        set{_isAiming = value;}
+    }
+
     [Header("Swipe Detection Properties")]
     [Space]
     [SerializeField] private byte _swipeThreshold;
@@ -28,11 +42,6 @@ public class Controller : MonoBehaviour
     private void Awake()
     {
         _input = new PlayerInput();
-        // _input.Enable();
-        // _input.Player.Throw.canceled += context => Throw();
-        // _input.Player.TouchPress.started += context => {_startedPosition = _input.Player.TouchPosition.ReadValue<Vector2>();};
-        // _input.Player.TouchPosition.performed += context => { _currentPosition = _input.Player.TouchPosition.ReadValue<Vector2>();};
-        // _input.Player.TouchPress.canceled += context => SwipeDetection();
     }
 
     void OnEnable()
@@ -60,22 +69,11 @@ public class Controller : MonoBehaviour
 
     private void SetDirection()
     {
-        Vector2 moveVector = _input.Player.Throw.ReadValue<Vector2>();
-        
-        if (moveVector == Vector2.zero)
-        {
-            return;
-        }
-
-        _direction.x = -moveVector.x;
-        _direction.z = -moveVector.y;
-        
-        _moveController.Aim(_direction);
+        _moveVector = _input.Player.Throw.ReadValue<Vector2>();
     }
-
     private void Throw()
     {
-        _moveController.Throw();
+        _isAiming = true;
     }
 
     private void SwipeDetection()
@@ -90,7 +88,6 @@ public class Controller : MonoBehaviour
 
         if((Mathf.Abs(delta.x) < Mathf.Abs(delta.y)))
         {
-            //Debug.Log("Vertical Swipe");
             if (delta.y > 0)
             {
                 OnSwipeEvent?.Invoke(1);
