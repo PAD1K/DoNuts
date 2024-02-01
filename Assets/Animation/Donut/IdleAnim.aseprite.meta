@@ -132,7 +132,7 @@ ScriptedImporter:
       y: 4
       width: 59
       height: 59
-    spriteID: 22d341b923d90554a96fb628ba56839c
+    spriteID: 9eb21d9f8a9620846af2b4bbf98a0e9e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -152,7 +152,7 @@ ScriptedImporter:
       y: 71
       width: 59
       height: 59
-    spriteID: 6fec5d29ea8d19e478e958a421029027
+    spriteID: 36d4188a674d2264a94d1a252a2c8427
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -172,7 +172,7 @@ ScriptedImporter:
       y: 138
       width: 59
       height: 59
-    spriteID: 8199a84c1df40304cbf3d14fb948a253
+    spriteID: a41f5bb73987de340b594beb1756c2cb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -192,7 +192,7 @@ ScriptedImporter:
       y: 4
       width: 59
       height: 59
-    spriteID: 915782522559594458234d812e5bee6b
+    spriteID: f14ac76e11ec0064383393524342910b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -217,7 +217,7 @@ ScriptedImporter:
         y: 20
         width: 59
         height: 59
-      spriteId: 22d341b923d90554a96fb628ba56839c
+      spriteId: 9eb21d9f8a9620846af2b4bbf98a0e9e
     - name: IdleAnim_Frame_1
       frameIndex: 1
       cellRect:
@@ -225,7 +225,7 @@ ScriptedImporter:
         y: 20
         width: 59
         height: 59
-      spriteId: 6fec5d29ea8d19e478e958a421029027
+      spriteId: 36d4188a674d2264a94d1a252a2c8427
     - name: IdleAnim_Frame_2
       frameIndex: 2
       cellRect:
@@ -233,7 +233,7 @@ ScriptedImporter:
         y: 20
         width: 59
         height: 59
-      spriteId: 8199a84c1df40304cbf3d14fb948a253
+      spriteId: a41f5bb73987de340b594beb1756c2cb
     - name: IdleAnim_Frame_3
       frameIndex: 3
       cellRect:
@@ -241,7 +241,7 @@ ScriptedImporter:
         y: 20
         width: 59
         height: 59
-      spriteId: 915782522559594458234d812e5bee6b
+      spriteId: f14ac76e11ec0064383393524342910b
     linkedCells: []
     parentIndex: -1
   platformSettings: []

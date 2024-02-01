@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0223ef9c76e5e934b866c0b968166566
+guid: b80c0f25fe48853499718a51f9a74beb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 10
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Do_Nuts22-Sheet_0
+      name: Do_Nuts22-Sheet 1_0
       rect:
         serializedVersion: 2
         x: 17
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56012ec3bb43e6744b9768d53b53b6ff
-      internalID: -1033380835
+      spriteID: 03c53a8e146b9f345be2c348c5354e87
+      internalID: 144901108
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Do_Nuts22-Sheet_1
+      name: Do_Nuts22-Sheet 1_1
       rect:
         serializedVersion: 2
         x: 117
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b88aaf70385173042bd6cb5d9fbf8e48
-      internalID: -1828857937
+      spriteID: 010139ba96fd7a4438bb09aa22a5c335
+      internalID: 671093260
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Do_Nuts22-Sheet_2
+      name: Do_Nuts22-Sheet 1_2
       rect:
         serializedVersion: 2
         x: 217
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 289e5413ac58d014fa7979cef1ed409f
-      internalID: -622274004
+      spriteID: ccc6a766f3940714d9ca87d0bc1616fd
+      internalID: -620577895
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Do_Nuts22-Sheet_3
+      name: Do_Nuts22-Sheet 1_3
       rect:
         serializedVersion: 2
         x: 317
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5090d36a015de734da7706921daaafc2
-      internalID: 612125729
+      spriteID: 16657995a3a7d4542acdd68ce1ca84dc
+      internalID: 1564867883
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Do_Nuts22-Sheet_4
+      name: Do_Nuts22-Sheet 1_4
       rect:
         serializedVersion: 2
         x: 417
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7f6913bf82cbf04ea7cb9a1ae2433b2
-      internalID: 1406210337
+      spriteID: 2f7a4572894d09f42b01a3b76d0533ee
+      internalID: 462404846
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Do_Nuts22-Sheet_5
+      name: Do_Nuts22-Sheet 1_5
       rect:
         serializedVersion: 2
         x: 517
@@ -229,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e99bec4092aa36a439153355a75c8539
-      internalID: 1885734858
+      spriteID: 2f140b93066ab6946bd34d059bad0382
+      internalID: -1188599491
       vertices: []
       indices: 
       edges: []
@@ -246,12 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Do_Nuts22-Sheet_0: -1033380835
-      Do_Nuts22-Sheet_1: -1828857937
-      Do_Nuts22-Sheet_2: -622274004
-      Do_Nuts22-Sheet_3: 612125729
-      Do_Nuts22-Sheet_4: 1406210337
-      Do_Nuts22-Sheet_5: 1885734858
+      Do_Nuts22-Sheet 1_0: 144901108
+      Do_Nuts22-Sheet 1_1: 671093260
+      Do_Nuts22-Sheet 1_2: -620577895
+      Do_Nuts22-Sheet 1_3: 1564867883
+      Do_Nuts22-Sheet 1_4: 462404846
+      Do_Nuts22-Sheet 1_5: -1188599491
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
