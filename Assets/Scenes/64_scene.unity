@@ -179,6 +179,10 @@ PrefabInstance:
       propertyPath: _zoomer
       value: 
       objectReference: {fileID: 1682782682}
+    - target: {fileID: 7842234547344137297, guid: 037dda3495b4f9c4f98e55b71f149f55, type: 3}
+      propertyPath: _cameraController
+      value: 
+      objectReference: {fileID: 2040088148}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -612,6 +616,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2040088148 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4976559602977036317, guid: 3f38464777dfee442bea9ea16d8da4f8, type: 3}
+  m_PrefabInstance: {fileID: 811183573}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d2415eb4d65fbf439fd63c34f241403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8382455606570977014
 PrefabInstance:
   m_ObjectHideFlags: 0

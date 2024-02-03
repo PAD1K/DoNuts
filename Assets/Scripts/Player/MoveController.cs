@@ -16,14 +16,17 @@ public class MoveController : MonoBehaviour
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private float _height = 0.6f; 
     [SerializeField] private float _stickSensitivity = 0.5f;
+    [SerializeField] private float _stunTime = 5;
     private Rigidbody _rigidbody;
     private bool _wasGrounded;
     private Vector3 _direction;
     private Vector3 _velocity;
+    private bool _isStun = false;
+    private float _startStunTime = 0;
 
     public void Throw()
     {
-        if (!IsGrounded()) 
+        if (!IsGrounded() || _isStun)
         {
             return;
         }
@@ -32,13 +35,14 @@ public class MoveController : MonoBehaviour
         {
             return;
         }
+
         _trajectoryRenderer.HideTrajectory();
         _rigidbody.AddForce(_velocity, ForceMode.VelocityChange);
     }
 
     public void Aim(Vector3 direction)
     {        
-        if (!IsGrounded()) 
+        if (!IsGrounded()|| _isStun)
         {
             return;
         }
@@ -49,9 +53,20 @@ public class MoveController : MonoBehaviour
 
         _velocity = _direction 
                     * _velocityValue
-                    * Mathf.Abs(Mathf.Sqrt(Mathf.Pow(direction.x, 2) + Mathf.Pow(direction.y, 2)));
+                    * Mathf.Abs(Mathf.Sqrt(Mathf.Pow(direction.x, 2) + Mathf.Pow(direction.z, 2)));
 
-        _trajectoryRenderer.ShowTrajectory(transform.position, _velocity);
+        _trajectoryRenderer.ShowTrajectory(transform.position, _velocity, _angle);
+    }
+
+    public void Stun()
+    {
+        if (_isStun)
+        {
+            return;
+        }
+        Debug.Log("Stun");
+        _isStun = true;
+        _startStunTime = Time.time;
     }
 
     private void Awake() 
@@ -70,6 +85,12 @@ public class MoveController : MonoBehaviour
         if (IsGrounded() && !_wasGrounded)
         {
             OnLandEvent?.Invoke();
+        }
+
+        if (_isStun && Time.time > _startStunTime + _stunTime)
+        {
+            Debug.Log("Unstun");
+            _isStun = false;
         }
         
         _wasGrounded = IsGrounded();

@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using Palmmedia.ReportGenerator.Core.Parser.Analysis;
 using UnityEngine;
 
-public class Battler : MonoBehaviour
+public class CombatManager : MonoBehaviour
 {
-    public delegate void LoseBarttleHandler ();
+    public delegate void LoseBarttleHandler (EnemyStats _enemyStats);
     public static event LoseBarttleHandler OnLoseBattle;
-    [SerializeField] private CameraZoomer _zoomer;
-    [SerializeField] private float _timeToLose = 30;
+    [SerializeField] private CameraController _cameraController;
+    [SerializeField] private float _timeToLose = 10;
+    [SerializeField] private uint _pointDelta = 1;
+
     private GameObject _player;
-    private EnemyStats _stats;
+    private EnemyStats _enemyStats;
+    private PlayerStats _playerStats;
     private float _startTime;
     private bool _inBattle = false;
 
@@ -18,6 +21,7 @@ public class Battler : MonoBehaviour
     {
         _player = GameObject.FindGameObjectWithTag("Player");    
         _startTime = 0;
+        gameObject.TryGetComponent<PlayerStats>(out _playerStats);
     }
 
     private void Update() 
@@ -34,20 +38,33 @@ public class Battler : MonoBehaviour
 
         if (Time.time > _startTime + _timeToLose)
         {
-            _inBattle = false;
-            OnLoseBattle?.Invoke();
+            LoseBattle();
         }    
     }
 
     private void StartBattle(EnemyStats stats)
     {
-        _zoomer.Zoom();
+        _enemyStats = stats;
+        _cameraController.Zoom();
         _inBattle =true;
+    }
+
+    private void WinBattle()
+    {
+        _cameraController.Zoom();
+        _playerStats.IncreasePoints(_pointDelta);
+    }
+
+    private void LoseBattle()
+    {
+        OnLoseBattle?.Invoke(_enemyStats);
+        _inBattle = false;
     }
 
     private void OnEnable() 
     {
         PlayerCollider.OnTriggerWithEnemy += StartBattle;
+        SwipeGame.OnGameSwipeWin += WinBattle;
     }
 
     private void OnDisable() 
