@@ -202,10 +202,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d1a9673b9f1054e9755cae2e9b5d6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _velocityValue: 7
+  _angle: 45
+  _trajectoryRenderer: {fileID: 2798217930758680022}
   _groundLayer:
     serializedVersion: 2
     m_Bits: 64
   _height: 0.6
+  _stickSensitivity: 0.5
 --- !u!114 &7672056492292078961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,22 +457,6 @@ PrefabInstance:
     - target: {fileID: 7400112468117747527, guid: 95df57f60fb8ff6479d6e3ba72d82666, type: 3}
       propertyPath: _countOfDots
       value: 102
-      objectReference: {fileID: 0}
-    - target: {fileID: 8335815227534700220, guid: 95df57f60fb8ff6479d6e3ba72d82666, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 1fe848c475a7976498a4faf8f75fb774, type: 3}
-    - target: {fileID: 9045769616558421427, guid: 95df57f60fb8ff6479d6e3ba72d82666, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 9045769616558421427, guid: 95df57f60fb8ff6479d6e3ba72d82666, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 9045769616558421427, guid: 95df57f60fb8ff6479d6e3ba72d82666, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9045769616558421427, guid: 95df57f60fb8ff6479d6e3ba72d82666, type: 3}
       propertyPath: m_LocalPosition.y
