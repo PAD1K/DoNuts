@@ -1,30 +1,20 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Animations;
 
 public class MoveController : MonoBehaviour
 {
     public delegate void LandHandler ();
     public static event LandHandler OnLandEvent;
-    [SerializeField] private float _velocityValue = 10;
-    [SerializeField] private float _angle = 45f;
-    [SerializeField] TrajectoryRenderer _trajectoryRenderer;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private float _height = 0.6f; 
     [SerializeField] private float _stickSensitivity = 0.5f;
     [SerializeField] private float _stunTime = 5;
     private Rigidbody _rigidbody;
     private bool _wasGrounded;
-    private Vector3 _direction;
     private Vector3 _velocity;
     private bool _isStun = false;
     private float _startStunTime = 0;
 
-    public void Throw()
+    public bool IsPlayerGrounded
     {
         if (!IsGrounded() || _isStun)
         {
@@ -71,15 +61,14 @@ public class MoveController : MonoBehaviour
 
     private void Awake() 
     {
-        _trajectoryRenderer.HideTrajectory();
-        _rigidbody = gameObject.GetComponent<Rigidbody>();
+        get{ return _velocity;}
+        set{ _velocity = value;}
     }
 
     private bool IsGrounded()
     {
         return Physics.Raycast(transform.position, Vector3.down, _height, _groundLayer);
     }
-
     private void FixedUpdate()
     {
         if (IsGrounded() && !_wasGrounded)
