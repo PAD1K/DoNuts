@@ -6,12 +6,12 @@ public class SwipeDetector : MonoBehaviour
 {
     void OnEnable()
     {
-        SwipeGame.OnGameSwipeWin += ctx => Swipe(ctx); 
+        SwipeGame.OnGameSwipeWin += Swipe; 
     }
 
     void OnDisable()
     {
-        SwipeGame.OnGameSwipeWin += ctx => Swipe(ctx);
+        SwipeGame.OnGameSwipeWin -= Swipe;
     }
 
     void Swipe(EnemyStats stats)

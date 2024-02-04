@@ -6,7 +6,6 @@ public class MoveController : MonoBehaviour
     public static event LandHandler OnLandEvent;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private float _height = 0.6f; 
-    [SerializeField] private float _stickSensitivity = 0.5f;
     [SerializeField] private float _stunTime = 5;
     private Rigidbody _rigidbody;
     private bool _wasGrounded;

@@ -31,7 +31,7 @@ public class SwipeGame : MonoBehaviour
         //_pauseMenu = GetComponentInChildren<PauseMenu>();
         _swipeImage = _swipeGameScreen.GetComponentInChildren<Image>();
         Debug.Log("Aboba");
-        PlayerCollider.OnTriggerWithEnemy += ctx => StartGame(ctx);
+        PlayerCollider.OnTriggerWithEnemy += StartGame;
     }
 
     // void OnTriggerEnter(Collider other)
@@ -50,7 +50,7 @@ public class SwipeGame : MonoBehaviour
         ShowUI();
         Controller.OnSwipeEvent += SwipeMatcher;
         _stats = stats;
-        Debug.Log("Game Started\nEnemy has this stats\n" + _stats);
+        Debug.Log("Game Started Enemy has this stats " + _stats);
     }
     void SwipeMatcher(int context)
     {
@@ -60,7 +60,7 @@ public class SwipeGame : MonoBehaviour
             Debug.Log("Damage here");
             if(_currentSwipe == _sequenceLength)
             {
-                Debug.Log("Game won\nEnemy has this stats\n" + _stats);
+                Debug.Log("Game won Enemy has this stats " + _stats);
                 HideUI();
                 OnGameSwipeWin?.Invoke(_stats);
                 Controller.OnSwipeEvent -= SwipeMatcher;

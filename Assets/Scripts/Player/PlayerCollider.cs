@@ -16,7 +16,6 @@ public class PlayerCollider : MonoBehaviour
         {
             return;
         }
-        
         other.gameObject.TryGetComponent<EnemyStats>(out _stats);
         OnTriggerWithEnemy?.Invoke(_stats);
     }

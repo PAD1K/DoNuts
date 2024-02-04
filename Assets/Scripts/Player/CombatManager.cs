@@ -49,7 +49,7 @@ public class CombatManager : MonoBehaviour
         _inBattle =true;
     }
 
-    private void WinBattle()
+    private void WinBattle(EnemyStats stats)
     {
         _cameraController.Zoom();
         _playerStats.IncreasePoints(_pointDelta);
@@ -69,6 +69,7 @@ public class CombatManager : MonoBehaviour
 
     private void OnDisable() 
     {
-        PlayerCollider.OnTriggerWithEnemy += StartBattle;
+        PlayerCollider.OnTriggerWithEnemy -= StartBattle;
+        SwipeGame.OnGameSwipeWin -= WinBattle;
     }
 }
