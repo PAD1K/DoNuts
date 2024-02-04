@@ -10,32 +10,42 @@ public class TrajectoryRenderer : MonoBehaviour
     [SerializeField] int _countOfDots;
     [SerializeField] TargetShower _targetSprite; 
 
-    public void ShowTrajectory(Vector3 origin, Vector3 velocity)
+    public Vector3[] GenerateArc(Vector3 startPoint, Vector3 endPoint, int countOfDots)
+    {
+        Vector3[] arcPoints = new Vector3[countOfDots];
+        float h = (endPoint - startPoint).magnitude / 2; // Высота дуги
+        Vector3 midPoint = (startPoint + endPoint) / 2; // Середина дуги
+
+        for (int i = 0; i < countOfDots; i++)
+        {
+            float t = (float)i / (countOfDots - 1); // Параметр t
+            Vector3 point = Vector3.Lerp(startPoint, endPoint, t); // Точка на линии между A и B
+            float y = h - 4 * h * (float)Math.Pow((point.x - midPoint.x) / (endPoint.x - startPoint.x), 2); // Вычисление y-координаты
+            arcPoints[i] = new Vector3(point.x, y, point.z);
+        }
+
+        return arcPoints;
+    }
+
+    public void ShowTrajectory(Vector3 origin, Vector3 velocity, float angle)
     {
         if (velocity.x ==0 && velocity.z == 0)
         {
             return;
         }
-        Vector3[] points = new Vector3[_countOfDots];
-        float time;
 
-        _lineRenderer.positionCount = points.Length;
+        float angleInRadians = angle * Mathf.Deg2Rad;
 
-        for (int i = 0; i < points.Length; i++)
-        {
-            time = i * Time.fixedDeltaTime;
-            points[i] = origin + velocity * time + Physics.gravity * time * time / 2;
+        // Вычисление времени полета
+        float time = (2 * velocity.magnitude * Mathf.Sin(angleInRadians)) / MathF.Abs(Physics.gravity.y);
 
-            //Прекращаем отрисовку в точке, где должно приземлиться тело.
-            if (Math.Abs(2 * velocity.y / Physics.gravity.y) <= time)
-            {
-                _lineRenderer.positionCount = i;
-                _targetSprite.ShowTarget(points[i]);
-                break;
-            }
-        }
+        Vector3 finalPosition = origin + velocity * time - 0.5f * Vector3.up * MathF.Abs(Physics.gravity.y) * time * time;
+        finalPosition.y = origin.y;
 
-        _lineRenderer.SetPositions(points);
+        _lineRenderer.positionCount = _countOfDots;
+        _lineRenderer.SetPositions(GenerateArc(origin, finalPosition, _countOfDots));
+        
+        _targetSprite.ShowTarget(finalPosition);
     }
 
     private void Awake() 

@@ -33,6 +33,7 @@ public class PlayerInAir : StateMachineBehaviour
     private void Throw(Animator animator)
     {
         _playerInput.IsAimingCanceled = false;
+        Debug.Log($"JumpVelocity is {_moveController.JumpVelocity}");
         _rb.AddForce(_moveController.JumpVelocity, ForceMode.VelocityChange);
         animator.SetBool("IsJumping", true);
     }

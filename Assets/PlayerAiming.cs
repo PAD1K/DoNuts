@@ -38,7 +38,6 @@ public class PlayerAiming : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log(_velocity);
         _playerInput.IsAimingCanceled = false;
        _tragectoryRenderer.HideTrajectory();
     }
@@ -64,9 +63,8 @@ public class PlayerAiming : StateMachineBehaviour
             _aimDirection.z = direction.z * Mathf.Sin(_angle * Mathf.Deg2Rad);
             _velocity = _aimDirection 
                         * _velocityValue
-                        * Mathf.Abs(Mathf.Sqrt(Mathf.Pow(direction.x, 2) + Mathf.Pow(direction.y, 2)));
-            _tragectoryRenderer.ShowTrajectory(_playerTransform.position, _velocity);
-            
+                        * Mathf.Abs(Mathf.Sqrt(Mathf.Pow(direction.x, 2) + Mathf.Pow(direction.z, 2)));
+            _tragectoryRenderer.ShowTrajectory(_playerTransform.position, _velocity, _angle);
         }
     }
 }

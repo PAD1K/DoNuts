@@ -9,7 +9,7 @@ public class TargetShower : MonoBehaviour
     public void ShowTarget(Vector3 position)
     {
         _spriteRenderer.enabled = true;
-        transform.position = position;
+        transform.position = new Vector3(position.x, position.y, position.z);
     }
 
     public void HideTarget()
