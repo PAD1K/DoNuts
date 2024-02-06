@@ -179,10 +179,13 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -858161327777310750, guid: d51441071da77f548850c58c94f18edf, type: 3}
+<<<<<<< HEAD
     - target: {fileID: 3736783873965320700, guid: 037dda3495b4f9c4f98e55b71f149f55, type: 3}
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+=======
+>>>>>>> 0daf592 (Создал спрайты истощения персонажа)
     - target: {fileID: 4094585737486622519, guid: 037dda3495b4f9c4f98e55b71f149f55, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.6605587
