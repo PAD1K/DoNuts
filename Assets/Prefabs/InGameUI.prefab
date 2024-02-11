@@ -4393,7 +4393,7 @@ GameObject:
   - component: {fileID: 5494093109819919562}
   - component: {fileID: 4188728937293207265}
   - component: {fileID: 3765877775419983164}
-  - component: {fileID: 863971425598724778}
+  - component: {fileID: 8629658831160028214}
   m_Layer: 5
   m_Name: InGameUI
   m_TagString: Untagged
@@ -4486,7 +4486,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &863971425598724778
+--- !u!114 &8629658831160028214
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4495,15 +4495,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8461891993838462648}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46e88181f3727ba4d9a5ebada7c0028e, type: 3}
+  m_Script: {fileID: 11500000, guid: f56bad7da3caed7439e59ffd6cdcfddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sequenceLength: 5
-  _pauseButton: {fileID: 0}
-  _joystick: {fileID: 0}
   _pauseMenu: {fileID: 3453720094938125798}
   _swipeGameScreen: {fileID: 541357873153612493}
-  _swipeImage: {fileID: 6899478348459296551}
   _swipeSprites:
   - {fileID: 21300000, guid: 7766114bd63d0b84f82a990961899fb0, type: 3}
   - {fileID: 21300000, guid: 7729be21b17325645896eff8cf69fc4d, type: 3}

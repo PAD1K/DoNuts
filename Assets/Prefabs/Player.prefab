@@ -14,9 +14,8 @@ GameObject:
   - component: {fileID: 3157297456357899850}
   - component: {fileID: 5083890177190490656}
   - component: {fileID: 7672056492292078961}
-  - component: {fileID: 1064337483392995067}
-  - component: {fileID: 6701071586232859034}
   - component: {fileID: 7276512801178235962}
+  - component: {fileID: 854594638044510364}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -135,33 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3adfb508a938a3e48a085e660b283203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1064337483392995067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4531391267799868626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2154e31ff7647804da2bc9f354b7b9e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6701071586232859034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4531391267799868626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20ffe1bf926d2114186eb35eb5edcd26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cameraController: {fileID: 0}
-  _timeToLose: 10
-  _pointDelta: 1
 --- !u!114 &7276512801178235962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,7 +146,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25090441e67c0be46a4f7d36cbae44ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 0
+  _health: 10
+--- !u!114 &854594638044510364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4531391267799868626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e88181f3727ba4d9a5ebada7c0028e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiController: {fileID: 8629658831160028214, guid: 527c56a668645e94c82e847986716b62, type: 3}
+  _cameraController: {fileID: 118951781366047083, guid: 3f38464777dfee442bea9ea16d8da4f8, type: 3}
+  _sequenceLength: 2
+  _timeToLose: 50
+  _pointDelta: 1
+  _currentTime: 0
 --- !u!1 &7606635919568930949
 GameObject:
   m_ObjectHideFlags: 0

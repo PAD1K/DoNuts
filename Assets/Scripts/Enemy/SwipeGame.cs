@@ -1,24 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine.UI;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.OnScreen;
-using TMPro;
 
 public class SwipeGame : MonoBehaviour
 {
+    [SerializeField] private SwipeUIController _uiController;
+    [SerializeField] private CameraController _cameraController;
     [SerializeField] private int _sequenceLength;
-    private EnemyStats _stats;
+    [SerializeField] private float _timeToLose;
+    [SerializeField] private uint _pointDelta;
+    private EnemyStats _enemyStats;
     private int[] _sequence;
     private int _currentSwipe;
-    [SerializeField] private Button _pauseButton;
-    [SerializeField] private OnScreenStick _joystick;
-    [SerializeField] private PauseMenu _pauseMenu;
-    [SerializeField] private GameObject _swipeGameScreen;
-    [SerializeField] private Image _swipeImage;
-    [SerializeField] private Sprite[] _swipeSprites;
+    private PlayerStats _playerStats;
+    private float _startTime;
+    [SerializeField] private float _currentTime;
+    private bool _inBattle = false;
 
 
     public delegate void GameSwipe(EnemyStats stats);
@@ -26,31 +21,39 @@ public class SwipeGame : MonoBehaviour
 
     void Awake()
     {
-        _pauseButton = GetComponentInChildren<Button>();
-        _joystick = GetComponentInChildren<OnScreenStick>();
-        //_pauseMenu = GetComponentInChildren<PauseMenu>();
-        _swipeImage = _swipeGameScreen.GetComponentInChildren<Image>();
-        Debug.Log("Aboba");
-        PlayerCollider.OnTriggerWithEnemy += StartGame;
+        _startTime = 0;
+        gameObject.TryGetComponent<PlayerStats>(out _playerStats);
     }
 
-    // void OnTriggerEnter(Collider other)
-    // {
-    //     if(other.tag == "Player")
-    //     {
-    //         GenerateSequence();
-    //         Controller.OnSwipeEvent += SwipeMatcher;
-    //     }
-    // }
+    void Update()
+    {
+        if (!_inBattle)
+        {
+            return;
+        }
 
-    void StartGame(EnemyStats stats)
+        // if (_startTime == 0)
+        // {
+        //     _startTime = Time.fixedTime;
+        // }
+        Debug.Log($"_startTime = {_startTime}");
+        Debug.Log($"Time.time = {Time.fixedTime}");
+        Debug.Log($"_startTime + _timeToLose = {_startTime + _timeToLose}");
+        _currentTime += Time.fixedDeltaTime;
+        if (_currentTime > _startTime + _timeToLose)
+        {
+            _uiController.HideUI();
+            LoseBattle();
+        }
+    }
+
+    void StartGame()
     {
         _sequence = new int[_sequenceLength];
         GenerateSequence();
-        ShowUI();
+        _uiController.ShowUI();
         Controller.OnSwipeEvent += SwipeMatcher;
-        _stats = stats;
-        Debug.Log("Game Started Enemy has this stats " + _stats);
+        Debug.Log("Game Started");
     }
     void SwipeMatcher(int context)
     {
@@ -60,18 +63,17 @@ public class SwipeGame : MonoBehaviour
             Debug.Log("Damage here");
             if(_currentSwipe == _sequenceLength)
             {
-                Debug.Log("Game won Enemy has this stats " + _stats);
-                HideUI();
-                OnGameSwipeWin?.Invoke(_stats);
-                Controller.OnSwipeEvent -= SwipeMatcher;
+                _uiController.HideUI();
+                WinBattle();
                 return;
             }
-            _swipeImage.sprite = _swipeSprites[_sequence[_currentSwipe]];
+            _uiController.SetUISwipeImage(_sequence[_currentSwipe]);
         }
         else
         {
             Debug.Log("Wrong");
-            GenerateSequence();
+            _uiController.HideUI();
+            LoseBattle();
         }
     }
 
@@ -84,24 +86,42 @@ public class SwipeGame : MonoBehaviour
             _sequence[i] = Random.Range(0,2);
             Debug.Log(_sequence[i]);
         }
-        _swipeImage.sprite = _swipeSprites[_sequence[_currentSwipe]];
+        _uiController.SetUISwipeImage(_sequence[_currentSwipe]);
     }
 
-    void ShowUI()
+    private void OnTriggerEnter(Collider other) 
     {
-        _pauseMenu.Pause();
-        _pauseButton.gameObject.SetActive(false);
-        _joystick.gameObject.SetActive(false);
-        _pauseMenu.gameObject.SetActive(true);
-        _swipeGameScreen.SetActive(true);
+        if(other.gameObject.tag != "Enemy")
+        {
+            return;
+        }
+        _startTime = Time.fixedTime;
+        _currentTime = _startTime;
+        other.gameObject.TryGetComponent<EnemyStats>(out _enemyStats);
+        StartBattle();
     }
 
-    void HideUI()
+    private void StartBattle()
     {
-        _pauseMenu.Pause();
-        _pauseButton.gameObject.SetActive(true);
-        _joystick.gameObject.SetActive(true);
-        _pauseMenu.gameObject.SetActive(false);
-        _swipeGameScreen.SetActive(false);
+        _inBattle = true;
+        _cameraController.Zoom();
+        StartGame();
+    }
+
+    private void WinBattle()
+    {
+        Controller.OnSwipeEvent -= SwipeMatcher;
+        _cameraController.Zoom();
+        _playerStats.IncreasePoints(_pointDelta);
+        _inBattle = false;
+    }
+
+    private void LoseBattle()
+    {
+        Debug.Log("Swipe game lost");
+        Controller.OnSwipeEvent -= SwipeMatcher;
+        _cameraController.Zoom();
+        _playerStats.TakeDamage(_enemyStats);
+        _inBattle = false;
     }
 }

@@ -29,7 +29,7 @@ public class PlayerStats : MonoBehaviour
     private void Awake() 
     {
         _points = 0;
-        CombatManager.OnLoseBattle += TakeDamage;
+        //CombatManager.OnLoseBattle += TakeDamage;
         gameObject.TryGetComponent<MoveController>(out _moveController);
     }
 }
