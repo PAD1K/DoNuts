@@ -6,7 +6,7 @@ public class EnemyChaseState : StateMachineBehaviour
 {
     [SerializeField] private float _chasingSpeed;
     [SerializeField] private float _chaseTime;
-    [SerializeField] private  InfoForStateMachine _enemyStatus;
+    [SerializeField] private  InfoForEnemyStateMachine _enemyStatus;
     [SerializeField] private  Transform _enemyTransform;
     [SerializeField] private float _chaseEndTime;
     private GameObject _target;
@@ -17,7 +17,7 @@ public class EnemyChaseState : StateMachineBehaviour
         _isChasing = true;
         _chaseEndTime = _chaseTime;
         _target = GameObject.FindGameObjectWithTag("Player");
-        _enemyStatus = animator.GetComponentInParent<InfoForStateMachine>();
+        _enemyStatus = animator.GetComponentInParent<InfoForEnemyStateMachine>();
         _enemyTransform = _enemyStatus.GetComponent<Transform>();
     }
 

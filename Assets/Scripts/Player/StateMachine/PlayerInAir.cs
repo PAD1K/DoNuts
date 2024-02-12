@@ -2,26 +2,28 @@ using UnityEngine;
 
 public class PlayerInAir : StateMachineBehaviour
 {
-    private Controller _playerInput;
+    //private Controller _infoForPlayerStateMachine;
     private Rigidbody _rb;
-    private MoveController _moveController;
     private Animator _animator;
+    private InfoForPlayerStateMachine _infoForPlayerStateMachine;
+
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         _animator = animator;
-        _playerInput = animator.GetComponentInParent<Controller>();
-        _rb = _playerInput.GetComponentInChildren<Rigidbody>();
-        _moveController = _playerInput.GetComponent<MoveController>();
-        MoveController.OnLandEvent += Landed;
+        _infoForPlayerStateMachine = animator.GetComponentInParent<InfoForPlayerStateMachine>();
+        //_infoForPlayerStateMachine = animator.GetComponentInParent<Controller>();
+        _rb = _infoForPlayerStateMachine.GetComponentInChildren<Rigidbody>();
+        //_infoForPlayerStateMachine = _infoForPlayerStateMachine.GetComponent<MoveController>();
+        InfoForPlayerStateMachine.OnLandEvent += Landed;
         Throw(animator);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.SetBool("IsGrounded", _moveController.IsPlayerGrounded);
+        animator.SetBool("IsGrounded", _infoForPlayerStateMachine.IsPlayerGrounded);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
@@ -32,8 +34,8 @@ public class PlayerInAir : StateMachineBehaviour
 
     private void Throw(Animator animator)
     {
-        _playerInput.IsAimingCanceled = false;
-        _rb.AddForce(_moveController.JumpVelocity, ForceMode.VelocityChange);
+        _infoForPlayerStateMachine.IsAimingCanceled = false;
+        _rb.AddForce(_infoForPlayerStateMachine.JumpVelocity, ForceMode.VelocityChange);
         animator.SetBool("IsJumping", true);
     }
 

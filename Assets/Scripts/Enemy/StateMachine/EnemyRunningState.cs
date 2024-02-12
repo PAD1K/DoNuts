@@ -8,7 +8,7 @@ public class EnemyRunningState : StateMachineBehaviour
     [SerializeField] private float _runningSpeed;
     [SerializeField] private float _runningTime;
     [SerializeField] private float _displacementDistance;
-    [SerializeField] private  InfoForStateMachine _enemyStatus;
+    [SerializeField] private  InfoForEnemyStateMachine _enemyStatus;
     [SerializeField] private  Transform _enemyTransform;
     [SerializeField] private float _runningEndTime;
     private GameObject _target;
@@ -19,7 +19,7 @@ public class EnemyRunningState : StateMachineBehaviour
         _isRunning = true;
         _runningEndTime = _runningTime;
         _target = GameObject.FindGameObjectWithTag("Player");
-        _enemyStatus = animator.GetComponentInParent<InfoForStateMachine>();
+        _enemyStatus = animator.GetComponentInParent<InfoForEnemyStateMachine>();
         _enemyTransform = _enemyStatus.GetComponent<Transform>();
     }
 

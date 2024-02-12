@@ -6,12 +6,14 @@ public class PlayerAiming : StateMachineBehaviour
     [SerializeField] private float _angle;
     [SerializeField] private float _stickSensitivity = 0.5f;
 
-    private Controller _playerInput;
+    //private Controller _infoForPlayerStateMachine;
+    private InfoForPlayerStateMachine _infoForPlayerStateMachine;
+
     private Transform _playerTransform;
     private TrajectoryRenderer _tragectoryRenderer;
     
     private Vector3 _direction = new Vector3(1, 1, 1);
-    private MoveController _moveController;
+    //private MoveController _infoForPlayerStateMachine;
     private Vector3 _velocity;
     private Vector3 _aimDirection;
 
@@ -21,17 +23,18 @@ public class PlayerAiming : StateMachineBehaviour
     {
         Debug.Log("On enter " + _velocity);
         _velocity = Vector3.zero;
-        _playerInput = animator.GetComponentInParent<Controller>();
-        _playerTransform = _playerInput.GetComponent<Transform>();
-        _tragectoryRenderer = _playerInput.GetComponentInChildren<TrajectoryRenderer>();
-        _moveController = _playerInput.GetComponent<MoveController>();
+        _infoForPlayerStateMachine = animator.GetComponentInParent<InfoForPlayerStateMachine>();
+        //_infoForPlayerStateMachine = animator.GetComponentInParent<Controller>();
+        _playerTransform = _infoForPlayerStateMachine.GetComponent<Transform>();
+        _tragectoryRenderer = _infoForPlayerStateMachine.GetComponentInChildren<TrajectoryRenderer>();
+        //_infoForPlayerStateMachine = _infoForPlayerStateMachine.GetComponent<MoveController>();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        _direction.x = -_playerInput.MoveVector.x;
-        _direction.z = -_playerInput.MoveVector.y;
+        _direction.x = -_infoForPlayerStateMachine.MoveVector.x;
+        _direction.z = -_infoForPlayerStateMachine.MoveVector.y;
         Aim(_direction, animator);
     }
 
@@ -39,14 +42,14 @@ public class PlayerAiming : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Debug.Log(_velocity);
-        _playerInput.IsAimingCanceled = false;
+        _infoForPlayerStateMachine.IsAimingCanceled = false;
        _tragectoryRenderer.HideTrajectory();
     }
 
     private void Aim(Vector3 direction, Animator animator)
     {        
-        Debug.Log(_playerInput.IsAimingCanceled);
-        if(_playerInput.IsAimingCanceled)
+        Debug.Log(_infoForPlayerStateMachine.IsAimingCanceled);
+        if(_infoForPlayerStateMachine.IsAimingCanceled)
         {
             if (Mathf.Abs(_velocity.x) <= _stickSensitivity && Mathf.Abs(_velocity.z) <= _stickSensitivity)
             {
@@ -54,7 +57,7 @@ public class PlayerAiming : StateMachineBehaviour
             }
             else
             {
-                _moveController.JumpVelocity = _velocity;
+                _infoForPlayerStateMachine.JumpVelocity = _velocity;
                 animator.SetTrigger("PlayerJumped");
             }
         }

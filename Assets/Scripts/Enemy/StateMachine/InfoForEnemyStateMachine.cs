@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InfoForStateMachine : MonoBehaviour
+public class InfoForEnemyStateMachine : MonoBehaviour
 {
     [SerializeField] private  Transform _waypointsHolder;
     private bool _isTargetInRadius;

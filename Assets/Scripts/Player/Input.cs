@@ -7,24 +7,21 @@ using UnityEngine;
 public class Controller : MonoBehaviour
 {
     private PlayerInput _input;
-    [SerializeField] private MoveController _moveController;
+    //[SerializeField] private MoveController _moveController;
+    InfoForPlayerStateMachine _infoForPlayerStateMachine;
     // Единичный вектор, задающий направление броска
     [SerializeField] private Vector3 _direction = new Vector3(1, 1, 1);
     [SerializeField] private TrajectoryRenderer _trajectoryRenderer;
 
     private Vector2 _moveVector;
 
-    public Vector2 MoveVector
-    {
-        get{return _moveVector;}
-        set{_moveVector = value;}
-    }
-    private bool _isAiming;
-    public bool IsAimingCanceled
-    {
-        get{return _isAiming;}
-        set{_isAiming = value;}
-    }
+    
+    // private bool _isAiming;
+    // public bool IsAimingCanceled
+    // {
+    //     get{return _isAiming;}
+    //     set{_isAiming = value;}
+    // }
 
     [Header("Swipe Detection Properties")]
     [Space]
@@ -42,6 +39,7 @@ public class Controller : MonoBehaviour
     private void Awake()
     {
         _input = new PlayerInput();
+        TryGetComponent<InfoForPlayerStateMachine>(out _infoForPlayerStateMachine);
     }
 
     void OnEnable()
@@ -70,10 +68,13 @@ public class Controller : MonoBehaviour
     private void SetDirection()
     {
         _moveVector = _input.Player.Throw.ReadValue<Vector2>();
+        _infoForPlayerStateMachine.MoveVector = _moveVector;
+        Debug.Log($"_moveVector {_moveVector}");
+        Debug.Log($"_infoForPlayerStateMachine.MoveVector {_infoForPlayerStateMachine.MoveVector}");
     }
     private void Throw()
     {
-        _isAiming = true;
+        _infoForPlayerStateMachine.IsAimingCanceled = true;
     }
 
     private void SwipeDetection()

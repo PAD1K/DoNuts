@@ -21,14 +21,4 @@ public class TargetShower : MonoBehaviour
     {
         HideTarget();
     }
-
-    void OnEnable()
-    {
-        MoveController.OnLandEvent += HideTarget;
-    }
-
-    void OnDisable()
-    {
-        MoveController.OnLandEvent -= HideTarget;
-    }
 }

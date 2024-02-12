@@ -45,12 +45,12 @@ public class TrajectoryRenderer : MonoBehaviour
 
     void OnEnable()
     {
-        MoveController.OnLandEvent += HideTrajectory;
+        InfoForPlayerStateMachine.OnLandEvent += HideTrajectory;
     }
 
     void OnDisable()
     {
-        MoveController.OnLandEvent -= HideTrajectory;
+        InfoForPlayerStateMachine.OnLandEvent -= HideTrajectory;
     }
 
     public void HideTrajectory()

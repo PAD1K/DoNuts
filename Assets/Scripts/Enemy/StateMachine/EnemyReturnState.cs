@@ -5,12 +5,12 @@ using UnityEngine;
 public class EnemyReturnState : StateMachineBehaviour
 {
     [SerializeField] float _returnSpeed;
-    [SerializeField] private  InfoForStateMachine _enemyStatus;
+    [SerializeField] private  InfoForEnemyStateMachine _enemyStatus;
     [SerializeField] private  Transform _enemyTransform;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        _enemyStatus = animator.GetComponentInParent<InfoForStateMachine>();
+        _enemyStatus = animator.GetComponentInParent<InfoForEnemyStateMachine>();
         _enemyTransform = _enemyStatus.GetComponent<Transform>();
     }
 
