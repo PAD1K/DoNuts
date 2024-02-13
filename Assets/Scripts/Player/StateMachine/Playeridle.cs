@@ -17,8 +17,8 @@ public class Playeridle : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.SetBool("IsGrounded", _infoForPlayerStateMachine.IsPlayerGrounded);
-       if(_infoForPlayerStateMachine.MoveVector != Vector2.zero && _infoForPlayerStateMachine.IsPlayerGrounded)
+        animator.SetBool("IsGrounded", _infoForPlayerStateMachine.IsPlayerGrounded());
+       if(_infoForPlayerStateMachine.MoveVector != Vector2.zero && _infoForPlayerStateMachine.IsPlayerGrounded())
        {
             animator.SetTrigger("IsAiming");
        }

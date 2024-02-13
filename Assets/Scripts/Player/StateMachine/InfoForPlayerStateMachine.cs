@@ -12,10 +12,10 @@ public class InfoForPlayerStateMachine : MonoBehaviour
     private bool _isStun = false;
     private float _startStunTime = 0;
     private bool _wasGrounded;
-    public bool IsPlayerGrounded
-    {
-        get{ return IsGrounded();}
-    }
+    // public bool IsPlayerGrounded
+    // {
+    //     get{ return IsGrounded();}
+    // }
 
     private Vector2 _moveVector;
     public Vector2 MoveVector
@@ -37,14 +37,14 @@ public class InfoForPlayerStateMachine : MonoBehaviour
         set{ _velocity = value;}
     }
 
-    private bool IsGrounded()
+    public bool IsPlayerGrounded()
     {
         return Physics.Raycast(transform.position, Vector3.down, _height, _groundLayer);
     }
 
     private void FixedUpdate()
     {
-        if (IsGrounded() && !_wasGrounded)
+        if (IsPlayerGrounded() && !_wasGrounded)
         {
             OnLandEvent?.Invoke();
         }
@@ -54,6 +54,6 @@ public class InfoForPlayerStateMachine : MonoBehaviour
             _isStun = false;
         }
         
-        _wasGrounded = IsGrounded();
+        _wasGrounded = IsPlayerGrounded();
     }
 }

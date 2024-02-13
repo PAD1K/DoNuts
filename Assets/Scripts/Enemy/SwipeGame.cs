@@ -15,10 +15,6 @@ public class SwipeGame : MonoBehaviour
     [SerializeField] private float _currentTime;
     private bool _inBattle = false;
 
-
-    public delegate void GameSwipe(EnemyStats stats);
-    public static event GameSwipe OnGameSwipeWin;
-
     void Awake()
     {
         _startTime = 0;
@@ -31,11 +27,7 @@ public class SwipeGame : MonoBehaviour
         {
             return;
         }
-
-        // if (_startTime == 0)
-        // {
-        //     _startTime = Time.fixedTime;
-        // }
+        
         Debug.Log($"_startTime = {_startTime}");
         Debug.Log($"Time.time = {Time.fixedTime}");
         Debug.Log($"_startTime + _timeToLose = {_startTime + _timeToLose}");
@@ -52,7 +44,7 @@ public class SwipeGame : MonoBehaviour
         _sequence = new int[_sequenceLength];
         GenerateSequence();
         _uiController.ShowUI();
-        Controller.OnSwipeEvent += SwipeMatcher;
+        InputController.OnSwipeEvent += SwipeMatcher;
         Debug.Log("Game Started");
     }
     void SwipeMatcher(int context)
@@ -110,7 +102,7 @@ public class SwipeGame : MonoBehaviour
 
     private void WinBattle()
     {
-        Controller.OnSwipeEvent -= SwipeMatcher;
+        InputController.OnSwipeEvent -= SwipeMatcher;
         _cameraController.Zoom();
         _playerStats.IncreasePoints(_pointDelta);
         _inBattle = false;
@@ -119,7 +111,7 @@ public class SwipeGame : MonoBehaviour
     private void LoseBattle()
     {
         Debug.Log("Swipe game lost");
-        Controller.OnSwipeEvent -= SwipeMatcher;
+        InputController.OnSwipeEvent -= SwipeMatcher;
         _cameraController.Zoom();
         _playerStats.TakeDamage(_enemyStats);
         _inBattle = false;

@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa071dec3b07b24d98f9e10a5beaf00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerTransform: {fileID: 4094585737486622519, guid: 037dda3495b4f9c4f98e55b71f149f55, type: 3}
+  _playerTransform: {fileID: 0}
   _smoothTime: 0.3
-  _zoomDistance: 2
+  _zoomDistance: 8
   _maxHeight: 20

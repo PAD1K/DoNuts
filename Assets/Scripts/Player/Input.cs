@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Controller : MonoBehaviour
+public class InputController : MonoBehaviour
 {
     private PlayerInput _input;
     //[SerializeField] private MoveController _moveController;
@@ -14,14 +14,6 @@ public class Controller : MonoBehaviour
     [SerializeField] private TrajectoryRenderer _trajectoryRenderer;
 
     private Vector2 _moveVector;
-
-    
-    // private bool _isAiming;
-    // public bool IsAimingCanceled
-    // {
-    //     get{return _isAiming;}
-    //     set{_isAiming = value;}
-    // }
 
     [Header("Swipe Detection Properties")]
     [Space]
