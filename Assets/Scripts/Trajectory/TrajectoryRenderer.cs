@@ -41,16 +41,7 @@ public class TrajectoryRenderer : MonoBehaviour
     private void Awake() 
     {
         TryGetComponent<LineRenderer>(out _lineRenderer);
-    }
-
-    void OnEnable()
-    {
-        InfoForPlayerStateMachine.OnLandEvent += HideTrajectory;
-    }
-
-    void OnDisable()
-    {
-        InfoForPlayerStateMachine.OnLandEvent -= HideTrajectory;
+        HideTrajectory();
     }
 
     public void HideTrajectory()
