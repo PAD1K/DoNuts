@@ -63,12 +63,12 @@ public class PlayerAiming : StateMachineBehaviour
         }
         else{
             _aimDirection.x = direction.x * Mathf.Cos(_angle * Mathf.Deg2Rad);
-            _aimDirection.y = direction.y;
-            _aimDirection.z = direction.z * Mathf.Sin(_angle * Mathf.Deg2Rad);
+            _aimDirection.y = direction.y * Mathf.Sin(_angle * Mathf.Deg2Rad);
+            _aimDirection.z = direction.z * Mathf.Cos(_angle * Mathf.Deg2Rad);
             _velocity = _aimDirection 
                         * _velocityValue
-                        * Mathf.Abs(Mathf.Sqrt(Mathf.Pow(direction.x, 2) + Mathf.Pow(direction.y, 2)));
-            _tragectoryRenderer.ShowTrajectory(_playerTransform.position, _velocity);
+                        * Mathf.Abs(Mathf.Sqrt(Mathf.Pow(direction.x, 2) + Mathf.Pow(direction.z, 2)));
+            _tragectoryRenderer.ShowTrajectory(_playerTransform.position, _velocity, _angle);
             
         }
     }
